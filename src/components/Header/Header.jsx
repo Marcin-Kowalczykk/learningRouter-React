@@ -4,6 +4,8 @@ import { themeLight } from '../../styles/theme';
 import { themeDark } from '../../styles/theme';
 import { Wrapper, Text, Button } from '.';
 
+import { Note } from './Note';
+
 export const Header = () => {
   const [isClicked, setIsClicked] = useState(false);
 
@@ -11,20 +13,15 @@ export const Header = () => {
     setIsClicked((prev) => !prev);
   };
 
-  const content = (
-    <Wrapper>
-      <Button onClick={changeThemeHandler}>change theme</Button>
-      <Text>Lets get started</Text>
-    </Wrapper>
-  );
-
   return (
     <Fragment>
-      {isClicked ? (
-        <ThemeProvider theme={themeLight}>{content}</ThemeProvider>
-      ) : (
-        <ThemeProvider theme={themeDark}>{content}</ThemeProvider>
-      )}
+      <ThemeProvider theme={isClicked ? themeLight : themeDark}>
+        <Wrapper>
+          <Button onClick={changeThemeHandler}>change theme</Button>
+          <Text>Lets get started</Text>
+          <Note />
+        </Wrapper>
+      </ThemeProvider>
     </Fragment>
   );
 };
