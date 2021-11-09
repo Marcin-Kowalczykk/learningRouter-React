@@ -1,2 +1,2 @@
 export { Header } from './Header';
-export { Text, Wrapper } from './styled-header';
+export { Text, Wrapper, Button } from './styled-header';
