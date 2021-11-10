@@ -1,25 +1,29 @@
 export const themeDark = {
   color: {
-    text: 'white',
-    background: 'black',
+    main: 'tomato',
+    normal: 'white',
+    background: 'gray',
+    navBackground: 'black',
   },
   font: {
-    size: {
-      extraSmall: '14px',
-      small: '16px',
-    },
+    extraSmall: '14px',
+    small: '16px',
+    large: '20px',
+    extraLarge: '24px',
   },
 };
 
 export const themeLight = {
   color: {
-    text: 'black',
+    main: 'tomato',
+    normal: 'black',
     background: 'white',
+    navBackground: '#dad8d8',
   },
   font: {
-    size: {
-      extraSmall: '14px',
-      small: '16px',
-    },
+    extraSmall: '14px',
+    small: '16px',
+    large: '20px',
+    extraLarge: '24px',
   },
 };

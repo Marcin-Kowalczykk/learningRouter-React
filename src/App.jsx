@@ -1,13 +1,36 @@
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
+
 import GlobalStyle from './styles/global';
-import { Header } from './components/Header';
+import { ThemeProvider } from 'styled-components';
+import { themeDark, themeLight } from './styles/theme';
+
+import NavBar from './components/Header/NavBar';
+import Welcome from './components/pages/Welcome';
+import Products from './components/pages/Products';
 
 function App() {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const changeThemeHandler = () => {
+    setIsClicked((prev) => !prev);
+  };
+
   return (
-    <Fragment>
+    <ThemeProvider theme={isClicked ? themeDark : themeLight}>
       <GlobalStyle />
-      <Header />
-    </Fragment>
+      <nav>
+        <NavBar onChangeTheme={changeThemeHandler} />
+      </nav>
+      <main>
+        <Route path="/Welcome">
+          <Welcome />
+        </Route>
+        <Route path="/Products">
+          <Products />
+        </Route>
+      </main>
+    </ThemeProvider>
   );
 }
 
