@@ -8,10 +8,10 @@ const NavBar = ({ onChangeTheme }) => {
   return (
     <UlWrapper>
       <Li>
-        <StyledLink to="./Welcome">Welcome</StyledLink>
+        <StyledLink to="/welcome">Welcome</StyledLink>
       </Li>
       <Li>
-        <StyledLink to="./Products">Products</StyledLink>
+        <StyledLink to="/products">Products</StyledLink>
       </Li>
       <Li>
         <ThemeButton changeTheme={onChangeTheme} />

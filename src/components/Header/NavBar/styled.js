@@ -27,4 +27,9 @@ export const StyledLink = styled(NavLink)`
   &:visited {
     border-bottom: 2px solid ${(props) => props.theme.color.normal};
   }
+
+  &:focus {
+    outline: none;
+    border-top: 1px solid ${(props) => props.theme.color.normal};
+  }
 `;

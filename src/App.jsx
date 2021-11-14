@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import GlobalStyle from './styles/global';
 import { ThemeProvider } from 'styled-components';
@@ -8,6 +8,7 @@ import { themeDark, themeLight } from './styles/theme';
 import NavBar from './components/Header/NavBar';
 import Welcome from './components/pages/Welcome';
 import Products from './components/pages/Products';
+import Product from './components/pages/Product';
 
 function App() {
   const [isClicked, setIsClicked] = useState(false);
@@ -23,12 +24,20 @@ function App() {
         <NavBar onChangeTheme={changeThemeHandler} />
       </nav>
       <main>
-        <Route path="/Welcome">
-          <Welcome />
-        </Route>
-        <Route path="/Products">
-          <Products />
-        </Route>
+        <Switch>
+          <Route path="/" exact>
+            <Redirect to="/welcome" />
+          </Route>
+          <Route path="/welcome">
+            <Welcome />
+          </Route>
+          <Route path="/products" exact>
+            <Products />
+          </Route>
+          <Route path="/products/:id">
+            <Product />
+          </Route>
+        </Switch>
       </main>
     </ThemeProvider>
   );
